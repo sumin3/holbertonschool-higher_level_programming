@@ -2,7 +2,7 @@
 This repository contains projects for training Python programming. Most projects are in python and are designed to learn python from beginning level to advanced level. Some projects are in C and are designed to learn Data Structure and Algorithms.
  
 ## Coding style
-- All python files are interpreted/compiled on Ubuntu 14.04 LTS using python3 (version 3.4.3) and use the PEP 8 style (version 1.7.*)
+- All python files are interpreted/compiled on Ubuntu 14.04 LTS using python3 (version 3.4.3) and use the [PEP 8 style (version 1.7.*)](https://github.com/PyCQA/pycodestyle) for checking coding style
 - All text files are executable with exactly two lines long and are tested on Ubuntu 14.04 LTS
 - All C files are compiled on Ubuntu 14.04 LTS and using [Betty Style](https://github.com/holbertonschool/Betty) for checking coding and documentation styles.
 
@@ -12,8 +12,8 @@ To use, first download this repository into your local machine by issuing the fo
 git clone https://github.com/sumin3/holbertonschool-higher_level_programming.git
 ```
 #### Directory
-Each directoy is named in a patterns
-* <level number from beginning to advanced level>-<name of programming language>-<concept>
+Each directoy is named in a patterns:
+<level number from beginning to advanced level> - <name of programming language> - <concept>
 Change directory into the **<directory name>** directory and issue the following command to compile the code
 
 * Run .py file
@@ -37,24 +37,5 @@ Once the .c files are compiled you can run the program by issuing the command
 ./<output filename>
 ```
 
-## Usage Examples
- ```
-/* example */
-```
-
-## Files
-Task number | File | Desc
----|---|---
-0  |   |
-1  |   |
-2  |   |
-3  |   |
-4  |   |
-5  |   |
-6  |   |
-7  |   |
-8  |   |
-9  |   |
-10 |   |
 ## Authors
 Sumin Yu  
