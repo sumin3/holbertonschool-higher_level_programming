@@ -36,6 +36,7 @@ $ ./insert
 ```
 ## Files
 Task number | File | Desc
+---|---|---
 0 | 0-positive_or_negative.py | determine positive or negative number
 1 | 1-last_digit.py | print last digit of a random number
 2 | 2-print_alphabet.py |  prints the alphabet, in lowercase
