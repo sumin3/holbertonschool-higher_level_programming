@@ -53,11 +53,11 @@ Task number | File | Desc
 13 | 13-insert_number.c  lists.h  13-main.c  linked_lists.c | inserts a number into a sorted singly linked list
 14 | 100-print_tebahpla.py | prints the alphabet, in reverse order, alternating lowercase and uppercase
 15 | 101-remove_char_at.py 101-main.py |  creates a copy of the string, removing the character at the position n (not the Python way, the “C array index”)")
-16 | 102-magic_calculation.py | write python function that does exactly the same as the Python bytecode
+16 | 102-magic_calculation.py | write python function that does exactly the same as the Python bytecode (see below)
 
-##Python bytecode
+## Python bytecode
 ```
-3           0 LOAD_FAST                0 (a)
+  3           0 LOAD_FAST                0 (a)
               3 LOAD_FAST                1 (b)
               6 COMPARE_OP               0 (<)
               9 POP_JUMP_IF_FALSE       16
