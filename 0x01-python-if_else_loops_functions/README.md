@@ -9,7 +9,7 @@ To use, first download  this repository into your local machine by issuing the f
 ```
 git clone https://github.com/sumin3/holbertonschool-higher_level_programming.git
 ```
-Change directory into the **0x01-python-if_else_loops_functions** directory and issue the following command to compile the code
+Change current working directory to **0x01-python-if_else_loops_functions** directory and issue the following command to compile the code
 * Run .py file
 ```
 python3 <filename.py>
