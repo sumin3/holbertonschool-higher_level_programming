@@ -17,7 +17,8 @@ Each directoy's name includes information below
 2. name of programming language
 3. concept/topic.
 #### Change Directory
-```cd <directory name>
+```
+cd <directory name>
 ```
 After change current working directory, issue the following command to compile the code
 
