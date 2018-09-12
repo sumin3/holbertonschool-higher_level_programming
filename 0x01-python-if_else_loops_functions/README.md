@@ -50,8 +50,7 @@ Task number | File | Desc
 10 | 10-add.py | adds two integers and returns the result.
 11 | 11-pow.py | computes a to the power of b and return the value
 12 | 12-fizzbuzz.py | prints the numbers from 1 to 100 separated by a space
-13 | 13-insert_number.c | inserts a number into a sorted singly linked list
-   | lists.h|      
+13 | 13-insert_number.c lists.h 13-main.c linked_lists.c | inserts a number into a sorted singly linked list
 
 ## Authors
 Sumin Yu  
