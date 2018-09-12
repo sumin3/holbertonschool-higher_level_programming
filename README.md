@@ -12,11 +12,11 @@ To use, first download this repository into your local machine by issuing the fo
 git clone https://github.com/sumin3/holbertonschool-higher_level_programming.git
 ```
 #### Directory
-Each directoy's name include information below
-1. level number from beginning to advanced level
+Each directoy's name includes information below
+1. a number which orders projects from beginning to advanced level
 2. name of programming language
-3. concept/topic
-Change directory into the **<directory name>** directory and issue the following command to compile the code
+3. concept/topic.
+Change directory into the **directory name** directory and issue the following command to compile the code
 
 * Run .py file
 ```
