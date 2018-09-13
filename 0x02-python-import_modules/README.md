@@ -35,7 +35,6 @@ $ ./0-add.py
 ```
 
 ## Files
-* All files in *Italic characters* are provided by [Holberton School](https://www.holbertonschool.com/) 
 Task number | File | Desc
 ---|--|---
 0  | 0-add.py *add_0.py* |  imports the function def add(a, b): from the file add_0.py and prints the result of the addition
@@ -48,7 +47,7 @@ Task number | File | Desc
 7  | 101-easy_print.py |  prints #pythoniscool within 2 lines and without using `eval`, `print`, `open`, `import sys`
 8  | 102-magic_calculation.py  | Write the Python function def magic_calculation(a, b): that does exactly the same as the Python bytecode (see bytecode section below)
 9  |103-fast_alphabet.py  | prints the alphabet in uppercase, followed by a new line. not allow use loops, conditional statement, `str.join()`, any string literal, any system calls 
-
+* All files in *Italic characters* are provided by [Holberton School](https://www.holbertonschool.com/) 
 ## Python Bytecode
 ```
   3           0 LOAD_CONST               1 (0)
