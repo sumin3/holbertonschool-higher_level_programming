@@ -16,7 +16,7 @@ git clone https://github.com/sumin3/holbertonschool-higher_level_programming.git
 ```
 cd 0x02-python-import_modules
 ```
-Change directory into the **0x02-python-import_modules** directory and issue the following command to compile
+Change directory into the **0x02-python-import_modules** directory and issue the following command to compile. (Make sure the .py file is executable before you run it. If it is not a executable file, use this command `chmod u+x <filename.py>` in your terminal to make it executable.
 
 * Run .py file
 ```
@@ -27,7 +27,6 @@ or
 ```
 ./<filename.py>
 ```
-make sure the .py file is executable before you run it. If not executable file, use this command `chmod u+x <filename.py>` in terminal to make it executable.
 
 ## Usage Examples
 ```
@@ -36,14 +35,15 @@ $ ./0-add.py
 ```
 
 ## Files
+All files in *Italic characters* are provided by [Holberton School](https://www.holbertonschool.com/) 
 Task number | File | Desc
 ---|--|---
-0  | 0-add.py add_0.py |  imports the function def add(a, b): from the file add_0.py and prints the result of the addition
-1  | 1-calculation.py `calculator_1.py` | imports functions from the file calculator_1.py, does some Maths, and prints the result.
+0  | 0-add.py *add_0.py* |  imports the function def add(a, b): from the file add_0.py and prints the result of the addition
+1  | 1-calculation.py *calculator_1.py* | imports functions from the file calculator_1.py, does some Maths, and prints the result.
 2  | 2-args.py | prints the number of and the list of its arguments.
 3  | 3-infinite_add.py | prints the result of the addition of all arguments
 4  | 4-hidden_discovery.py [hidden_4.pyc](https://github.com/holbertonschool/0x02.py/raw/master/hidden_4.pyc) | prints all the names defined by the compiled module hidden_4.pyc
-5  | 5-variable_load.py variable_load_5.py | imports the variable a from the file variable_load_5.py and prints its value.
+5  | 5-variable_load.py *variable_load_5.py* | imports the variable a from the file variable_load_5.py and prints its value.
 6  | 100-my_calculator.py | imports all functions from the file calculator_1.py and handles basics operations.
 7  | 101-easy_print.py |  prints #pythoniscool within 2 lines and without using `eval`, `print`, `open`, `import sys`
 8  | 102-magic_calculation.py  | Write the Python function def magic_calculation(a, b): that does exactly the same as the Python bytecode (see bytecode section below)
