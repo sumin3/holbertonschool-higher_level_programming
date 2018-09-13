@@ -46,7 +46,7 @@ Task number | File | Desc
 6  | 100-my_calculator.py | imports all functions from the file calculator_1.py and handles basics operations.
 7  | 101-easy_print.py |  prints #pythoniscool within 2 lines and without using `eval`, `print`, `open`, `import sys`
 8  | 102-magic_calculation.py  | Write the Python function def magic_calculation(a, b): that does exactly the same as the Python bytecode (see bytecode section below)
-9 ~~strikethrough text~~ |103-fast_alphabet.py  | prints the alphabet in uppercase, followed by a new line. not allow use loops, conditional statement, `str.join()`, any string literal, any system calls 
+9  |103-fast_alphabet.py  | prints the alphabet in uppercase, followed by a new line. not allow use loops, conditional statement, `str.join()`, any string literal, any system calls 
 * All files in *Italic characters* are provided by [Holberton School](https://www.holbertonschool.com/) 
 ## Python Bytecode
 ```
