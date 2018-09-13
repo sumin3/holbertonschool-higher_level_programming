@@ -12,11 +12,6 @@ To use, first download  this repository into your local machine by issuing the f
 ```
 git clone https://github.com/sumin3/holbertonschool-higher_level_programming.git
 ```
-#### Directory
-Each directoy's name includes information below
-1. a number which orders projects from beginning to advanced level
-2. name of programming language
-3. concept/topic.
 #### Change Directory
 ```
 cd 0x02-python-import_modules
@@ -26,8 +21,9 @@ Change directory into the **0x02-python-import_modules** directory and issue the
 * Run .py file
 ```
 python3 <filename.py>
-```h directoy's name includes information below
+```
 or
+
 ```
 ./<filename.py>
 ```
