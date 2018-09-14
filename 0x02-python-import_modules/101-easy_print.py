@@ -1,2 +1,2 @@
-from helper import printstr
-printstr("#pythoniscool")
+#!/usr/bin/python3
+import helper
