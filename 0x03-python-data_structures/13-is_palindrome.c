@@ -12,7 +12,7 @@ int is_palindrome(listint_t **head)
 	int count = 0, tmp_count = 0, idx = 0, i, j, match = 0;
 	char *buff = NULL;
 
-	if (*head == NULL || head == NULL)
+	if (*head == NULL || *head->next == NULL)
 		return (1);
 	while (tmp)
 	{
@@ -27,7 +27,6 @@ int is_palindrome(listint_t **head)
 		cur = cur->next;
 		tmp_count--;
 		idx++;
-
 	}
 	for (i = 0, j = count - 1; i < count / 2; i++, j--)
 	{
