@@ -12,6 +12,8 @@ int is_palindrome(listint_t **head)
 	int count = 0, tmp_count = 0, idx = 0, i, j, match = 0;
 	char *buff = NULL;
 
+	if (*head == NULL || head == NULL)
+		return (1);
 	while (tmp)
 	{
 		tmp = tmp->next;
