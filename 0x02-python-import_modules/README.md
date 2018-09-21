@@ -5,7 +5,7 @@ simple python codes
 To learn how to import a module and how to write a module
 
 ## Coding style
-- All python files are interpreted/compiled on Ubuntu 14.04 LTS using python3 (\version 3.4.3) and use the [PEP 8 style (version 1.7.*)](https://github.com/PyC\QA/pycodestyle) for checking coding style.
+- All python files are interpreted/compiled on Ubuntu 14.04 LTS using python3 (version 3.4.3) and use the [PEP 8 style (version 1.7.*)](https://github.com/PyC\QA/pycodestyle) for checking coding style.
 
 ## Getting started
 To use, first download  this repository into your local machine by issuing the following command in your local terminal. 
