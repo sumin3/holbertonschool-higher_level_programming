@@ -58,6 +58,6 @@ Task number | File | Desc
 13 | 100-weight_average.py, *100-main.py* | returns the weighted average of all integers tuple (<score>, <weight>)
 14 | 101-square_matrix_map.py, *101-main.py*| computes the square value of all integers of a matrix using map
 15 | 102-complex_delete.py, *102-main.py* | deletes keys with a specific value in a dictionary.
-
+* All files in *Italic characters* are provided by [Holberton School](https://www.holbertonschool.com/) 
 ## Authors
 Sumin Yu  
