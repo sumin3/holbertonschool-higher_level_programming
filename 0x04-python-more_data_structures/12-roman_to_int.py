@@ -3,13 +3,15 @@ def roman_to_int(roman_string):
     if roman_string is None or type(roman_string) != str:
         return 0
     total = 0
-    sym = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
-    val = [1, 5, 10, 50, 100, 500, 1000]
+    sym = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    if len(roman_string) == 1:
+        total = sym[roman_string[0]]
+        return total
     for i in range(0, len(roman_string)):
-        for idx in range(0, 7):
-            if roman_string[i] == sym[idx]:
-                total += val[idx]
-                if i != 0:
-                    if roman_string[i - 1] == 'I' and roman_string[i] != 'I':
-                        total = total - 2
+        if i == len(roman_string) - 1:
+            total += sym[roman_string[i]]
+        elif sym[roman_string[i]] >= sym[roman_string[i + 1]]:
+            total += sym[roman_string[i]]
+        elif sym[roman_string[i]] < sym[roman_string[i + 1]]:
+            total -= 10**(len(str(sym[roman_string[i]])) - 1)
     return total
