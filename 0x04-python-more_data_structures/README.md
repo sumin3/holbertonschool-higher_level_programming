@@ -26,7 +26,7 @@ After change current working directory to **0x04-python-more_data_structures** d
 * Run .py file
 ```
 python3 <filename.py>
-```h directoy's name includes information below
+```
 or
 ```
 ./<filename.py>
