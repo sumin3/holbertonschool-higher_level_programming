@@ -24,3 +24,5 @@ def list_division(my_list_1, my_list_2, list_length):
             tmp = i + 1
             new.append(0)
             pass
+        finally:
+            pass
