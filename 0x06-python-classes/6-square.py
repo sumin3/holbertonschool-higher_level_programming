@@ -27,13 +27,16 @@ class Square:
             raise TypeError("size must be an integer")
 
         meg = "position must be a tuple of 2 positive integers"
-        if isinstance(position, tuple) and len(position) == 2:
-            if position[0] >= 0 and position[1] >= 0:
-                self.__position = position
-            else:
-                raise TypeError(meg)
-        else:
+        if isinstance(position, tuple) is False or len(position) != 2:
             raise TypeError(meg)
+        elif not(isinstance(position[0], int)):
+            raise TypeError(meg)
+        elif not(isinstance(position[1], int)):
+            raise TypeError(meg)
+        elif position[0] < 0 or position[1] < 0:
+            raise TypeError(meg)
+        else:
+            self.__position = position
 
     @property
     def size(self):
@@ -84,13 +87,14 @@ class Square:
              TypeError: position must be a tuple of 2 positive integers
         """
         meg = "position must be a tuple of 2 positive integers"
-        if isinstance(value, tuple) and len(value) == 2:
-            if value[0] >= 0 and value[1] >= 0:
-                self.__position = value
-            else:
-                raise TypeError(meg)
-        else:
+        if isinstance(value, tuple) is False or len(value) != 2:
             raise TypeError(meg)
+        elif not(isinstance(value[0], int) and isinstance(value[1], int)):
+            raise TypeError(meg)
+        elif value[0] < 0 or value[1] < 0:
+            raise TypeError(meg)
+        else:
+            self.__position = value
 
     def area(self):
         """ This is a function calculate the area of a square
