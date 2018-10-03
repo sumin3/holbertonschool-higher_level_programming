@@ -103,11 +103,10 @@ class Square:
 
     def my_print(self):
         """This function print a square"""
+        if self.__size == 0:
+            print()
         for x in range(0, self.__position[1]):
             print()
         for y in range(0, self.__size):
             print("{}".format(" " * self.__position[0]), end="")
             print("{}".format("#" * self.__size))
-        if self.__size == 0:
-            print("{}".format(" " * self.__position[0]), end="")
-            print()
