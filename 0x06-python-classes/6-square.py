@@ -27,7 +27,7 @@ class Square:
             raise TypeError("size must be an integer")
 
         meg = "position must be a tuple of 2 positive integers"
-        if isinstance(position, tuple) is False or len(position) != 2:
+        if len(position) != 2 or isinstance(position, tuple) is False:
             raise TypeError(meg)
         elif not(isinstance(position[0], int)):
             raise TypeError(meg)
@@ -87,7 +87,7 @@ class Square:
              TypeError: position must be a tuple of 2 positive integers
         """
         meg = "position must be a tuple of 2 positive integers"
-        if isinstance(value, tuple) is False or len(value) != 2:
+        if len(value) != 2 or isinstance(value, tuple) is False:
             raise TypeError(meg)
         elif not(isinstance(value[0], int) and isinstance(value[1], int)):
             raise TypeError(meg)
@@ -109,8 +109,9 @@ class Square:
         """This function print a square"""
         if self.__size == 0:
             print()
-        for x in range(0, self.__position[1]):
-            print()
-        for y in range(0, self.__size):
-            print("{}".format(" " * self.__position[0]), end="")
-            print("{}".format("#" * self.__size))
+        else:
+            for x in range(0, self.__position[1]):
+                print()
+            for y in range(0, self.__size):
+                print("{}".format(" " * self.__position[0]), end="")
+                print("{}".format("#" * self.__size))
