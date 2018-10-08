@@ -10,7 +10,7 @@
 ####
 
 >>> f(0)
-<BLANKLINE>
+
 
 >>> f(-1)
 Traceback (most recent call last):
