@@ -8,6 +8,11 @@ Traceback (most recent call last):
 ...
 TypeError: a must be an integer
 
+>>> add_integer(‘float(‘nan’)’ , 2)
+Traceback (most recent call last):
+...
+SyntaxError: invalid character in identifier
+
 >>> add_integer(1, 2)
 3
 
