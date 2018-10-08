@@ -13,6 +13,11 @@ Traceback (most recent call last):
 ...
 ValueError: cannot convert float NaN to integer
 
+>>> add_integer(float(‘inf’) , 2)
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+
 >>> add_integer(1, 2)
 3
 
