@@ -132,4 +132,5 @@ class Rectangle:
     def square(cls, size=0):
         """returns a new Rectangle instance with width = height = size
         """
-        return Rectangle(size, size)
+        cls.number_of_instances += 1
+        return cls(size, size)
