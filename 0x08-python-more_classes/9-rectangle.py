@@ -133,4 +133,4 @@ class Rectangle:
         """returns a new Rectangle instance with width = height = size
         """
         cls.number_of_instances += 1
-        return cls(size, size)
+        return Rectangle(size, size)
