@@ -8,17 +8,21 @@ def add_integer(a, b=98):
     """ This is a function that add two integers
     Args:
        a: first integer that need to add
-        b: second integer that need to add
+       b: second integer that need to add
     Return:
         return: sum
     """
 
+    if not isinstance(a, (float, int)):
+        raise TypeError("a must be an integer")
+    if not isinstance(b, (float, int)):
+        raise TypeError("b must be an integer")
     if isinstance(a, float):
         a = int(a)
     if isinstance(b, float):
         b = int(b)
-    if not isinstance(a, int):
-        raise TypeError("a must be an integer")
-    if not isinstance(b, int):
-        raise TypeError("b must be an integer")
     return a + b
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testfile("./tests/0-add_integer.txt")

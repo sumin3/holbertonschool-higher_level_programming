@@ -8,15 +8,6 @@ Traceback (most recent call last):
 ...
 TypeError: a must be an integer
 
->>> add_integer("nan" , 2)
-Traceback (most recent call last):
-...
-TypeError: a must be an integer
-
->>> add_integer("inf" , 2)
-Traceback (most recent call last):
-...
-TypeError: a must be an integer
 
 >>> add_integer(1, 2)
 3
