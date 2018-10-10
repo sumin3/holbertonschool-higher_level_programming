@@ -24,15 +24,12 @@ def matrix_divided(matrix, div):
             raise TypeError(ErrorMeg)
         if len(matrix[0]) != len(i):
             raise TypeError("Each row of the matrix must have the same size")
-
+        for j in i:
+            if not isinstance(j, (float, int)):
+                raise TypeError(ErrorMeg)
     if not (isinstance(div, int) or isinstance(div, float)):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    for i in matrix:
-        for j in i:
-            if isinstance(j, float) or isinstance(j, int):
-                return [[round(x / div, 2) for x in y] for y in matrix]
-            else:
-                raise TypeError(ErrorMeg)
+    return [[round(x / div, 2) for x in y] for y in matrix]
