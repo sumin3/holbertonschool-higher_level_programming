@@ -8,15 +8,15 @@ Traceback (most recent call last):
 ...
 TypeError: a must be an integer
 
->>> add_integer(float(‘nan’) , 2)
+>>> add_integer("nan" , 2)
 Traceback (most recent call last):
 ...
-ValueError: cannot convert float NaN to integer
+TypeError: a must be an integer
 
->>> add_integer(float(‘inf’) , 2)
+>>> add_integer("inf" , 2)
 Traceback (most recent call last):
 ...
-ValueError: cannot convert float NaN to integer
+TypeError: a must be an integer
 
 >>> add_integer(1, 2)
 3
