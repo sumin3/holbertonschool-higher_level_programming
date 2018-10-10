@@ -20,6 +20,6 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer(["a", "c", "z"]), "z")
         self.assertEqual(max_integer(), None)
         self.assertEqual(max_integer([-1, -5, -3]), -1)
-        self.assertEqual(max_integer([-1], -1)
+        self.assertEqual(max_integer([1]), 1)
 if __name__ == '__main__':
     unittest.main()
