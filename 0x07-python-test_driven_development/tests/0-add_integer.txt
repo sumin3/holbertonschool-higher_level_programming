@@ -8,6 +8,9 @@ Traceback (most recent call last):
 ...
 TypeError: a must be an integer
 
+>>> add_integer(int(12.9))
+110
+
 >>> add_integer("NaN")
 Traceback (most recent call last):
 ...
