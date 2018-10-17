@@ -30,5 +30,5 @@ class Student:
         Return:
             return the replaced atrributes
         """
-        self.__dict__ = json
-        return self.__dict__
+        for key in json:
+            self.__dict__[key] = json.get(key)
