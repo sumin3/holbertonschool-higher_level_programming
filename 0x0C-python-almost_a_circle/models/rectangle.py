@@ -140,4 +140,14 @@ class Rectangle(Base):
         Args:
            args: argument
         """
-        
+        for idx, arg in enumerate(args):
+            if idx == 0:
+                self.id = arg
+            if idx == 1:
+                self.width = arg
+            if idx == 2:
+                self.height = arg
+            if idx == 3:
+                self.x = arg
+            if idx == 4:
+                self.y = arg
