@@ -35,5 +35,27 @@ Traceback (most recent call last):
 ...
 TypeError: tmp must be an integer
 
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
 
+>>> bg.integer_validator("tmp", (4,))
+Traceback (most recent call last):
+...
+TypeError: tmp must be an integer
 
+>>> bg.integer_validator("tmp", [3])
+Traceback (most recent call last):
+...
+TypeError: tmp must be an integer
+
+>>> bg.integer_validator("tmp", True)
+Traceback (most recent call last):
+...
+TypeError: tmp must be an integer
+
+>>> bg.integer_validator("tmp", {3,4})
+Traceback (most recent call last):
+...
+TypeError: tmp must be an integer
