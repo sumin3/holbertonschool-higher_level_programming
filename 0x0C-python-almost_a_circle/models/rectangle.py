@@ -2,6 +2,7 @@
 from models.base import Base
 """import class Base"""
 
+
 class Rectangle(Base):
     """Rectangle class that inherits from Base"""
 
@@ -117,14 +118,6 @@ class Rectangle(Base):
            return the area
         """
         return self.__width * self.__height
-    
-    def display(self):
-        """display method: prints in stdout the Rectangle instance
-        with the character # by taking care of x and y position
-        """
-        print(self.__y * '\n', end="")
-        row = self.__x * ' ' + self.__width * '#'
-        print("\n".join([row for h in range(self.__height)]))
 
     def __str__(self):
         """__str__ method: return a string
@@ -135,19 +128,19 @@ class Rectangle(Base):
                                                         self.__y, self.__width,
                                                         self.__height))
 
-    def update(self, *args):
-        """update method: assigns an argument to each attribute
+    def update(self, *args, **kwargs):
+        """update method: assigns a key/value argument to each attribute
         Args:
-           args: argument
+            kwargs: double pointer to a dictionary: key/value
         """
-        for idx, arg in enumerate(args):
-            if idx == 0:
-                self.id = arg
-            if idx == 1:
-                self.width = arg
-            if idx == 2:
-                self.height = arg
-            if idx == 3:
-                self.x = arg
-            if idx == 4:
-                self.y = arg
+        for key, value in kwargs.items():
+            if key == 'id':
+                self.id = value
+            if key == 'width':
+                self.width = value
+            if key == 'height':
+                self.height = value
+            if key == 'x':
+                self.x = value
+            if key == 'y':
+                self.y = value
