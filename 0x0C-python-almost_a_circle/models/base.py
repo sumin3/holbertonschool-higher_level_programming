@@ -7,6 +7,7 @@ import json
 
 class Base:
     __nb_objects = 0
+
     def __init__(self, id=None):
         """__init__ method: initialize the passing variables
         Args:
@@ -36,7 +37,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """save_to_file classmethod: writes the JSON string
-        representation of list_objs to a file 
+        representation of list_objs to a file
         Args:
             cls: the class itself
             list_objs: a list of instances who inherits of Base
@@ -64,5 +65,32 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        dummy = cls(1,1)
-        cls.update(
+        """create classmethod: Dictionary to Instance
+        Args:
+           cls: the class itself
+           dictionary: double pointer to a dictionary
+        Return:
+           returns an instance with all attributes already set
+        """
+        dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """load_from_file classmethod: File to instances
+        Args:
+           cls: the class itself
+        Return:
+           returns a list of instances
+        """
+        filename = "{}.json".format(cls.__name__)
+        list_instance = []
+        try:
+            with open(filename, mode="r", encoding='utf-8') as f:
+                list_dict = cls.from_json_string(f.read())
+            for d in list_dict:
+                list_instance.append(cls.create(**d))
+            return list_instance
+        except FileNotFoundError:
+            return []

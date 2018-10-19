@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 from models.rectangle import Rectangle
 """import class rectangle"""
@@ -22,8 +21,9 @@ class Square(Rectangle):
         Return:
             return [Square] (<id>) <x>/<y> - <size>
         """
-        return ("[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width))
-        
+        return ("[Square] ({}) {}/{} - {}".format(self.id,
+                                                  self.x, self.y, self.width))
+
     @property
     def size(self):
         """Getter: get size of square
@@ -74,4 +74,4 @@ class Square(Rectangle):
               returns the dictionary representation of a square
         """
         attrs_list = ["id", "size", "x", "y"]
-        return {key : getattr(self, key) for key in attrs_list}
+        return {key: getattr(self, key) for key in attrs_list}

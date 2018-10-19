@@ -173,4 +173,4 @@ class Rectangle(Base):
               returns the dictionary representation of a Rectangle
         """
         attrs_list = ["id", "width", "height", "x", "y"]
-        return {key : getattr(self, key) for key in attrs_list}
+        return {key: getattr(self, key) for key in attrs_list}
