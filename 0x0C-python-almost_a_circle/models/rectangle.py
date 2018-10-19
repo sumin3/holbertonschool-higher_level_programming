@@ -24,7 +24,7 @@ class Rectangle(Base):
     @property
     def width(self):
         "Getter: get width of the rectangle"""
-        return self__width
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -95,7 +95,7 @@ class Rectangle(Base):
         """Getter: get y position of rectangle"""
         return self.__y
 
-    @x.setter
+    @y.setter
     def y(self, value):
         """Setter: set argument value to y
         Attributes:
@@ -117,30 +117,51 @@ class Rectangle(Base):
         Return:
            return the area
         """
-        return self.__width * self.__height
+        return self.width * self.height
+
+    def display(self):
+        """display method: prints in stdout the Rectangle instance
+        with the character # by taking care of x and y position
+        """
+        print(self.y * '\n', end="")
+        row = self.x * ' ' + self.width * '#'
+        print("\n".join([row for h in range(self.height)]))
 
     def __str__(self):
         """__str__ method: return a string
         Return:
             return [Rectangle] (<id>) <x>/<y> - <width>/<height>
         """
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,
-                                                        self.__y, self.__width,
-                                                        self.__height))
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
+                                                        self.y, self.width,
+                                                        self.height))
 
     def update(self, *args, **kwargs):
         """update method: assigns a key/value argument to each attribute
         Args:
             kwargs: double pointer to a dictionary: key/value
         """
-        for key, value in kwargs.items():
-            if key == 'id':
-                self.id = value
-            if key == 'width':
-                self.width = value
-            if key == 'height':
-                self.height = value
-            if key == 'x':
-                self.x = value
-            if key == 'y':
-                self.y = value
+        if args and len(args) > 0:
+            for idx, arg in enumerate(args):
+                if idx == 0:
+                    self.id = arg
+                if idx == 1:
+                    self.width = arg
+                if idx == 2:
+                    self.height = arg
+                if idx == 3:
+                    self.x = arg
+                if idx == 4:
+                    self.y = arg
+        elif kwargs and len(kwargs) > 0:
+            for key, value in kwargs.items():
+                if key == 'id':
+                    self.id = value
+                if key == 'width':
+                    self.width = value
+                if key == 'height':
+                    self.height = value
+                if key == 'x':
+                    self.x = value
+                if key == 'y':
+                    self.y = value
