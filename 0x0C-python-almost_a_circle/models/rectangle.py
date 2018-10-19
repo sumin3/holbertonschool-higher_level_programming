@@ -165,3 +165,12 @@ class Rectangle(Base):
                     self.x = value
                 if key == 'y':
                     self.y = value
+
+    def to_dictionary(self):
+        """to_dictionary method: Rectangle instance to dictionary
+        representation
+        Return:
+              returns the dictionary representation of a Rectangle
+        """
+        attrs_list = ["id", "width", "height", "x", "y"]
+        return {key : getattr(self, key) for key in attrs_list}
