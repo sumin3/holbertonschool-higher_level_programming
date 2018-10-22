@@ -80,6 +80,11 @@ class TestSquareClass(unittest.TestCase):
             Square(-1, 1)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(0, -1)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Square(size=-1)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Square(size=0)
+
 
     def test_size_special_case(self):
         """test width and height with special cases"""
@@ -537,6 +542,47 @@ class TestSquareClass(unittest.TestCase):
             r1.update(x=-1)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             r1.update(y=-2)
+        with self.assertRaises(ValueError):
+            r1.update(y=-2, x=-1)
 
+    def test_to_dictionary(self):
+        """test to_dictionary medthod"""
+        Base._Base__nb_objects = 0
+        r1 = Square(2, 1, 9)
+        r1_d = r1.to_dictionary()
+        d = {'x': 1, 'y': 9, 'id': 1, 'size': 2}
+        self.assertDictEqual(r1_d, d)
+        self.assertEqual(type(r1_d), dict)
+        r2 = Square(1, 1)
+        r2.update(**r1_d)
+        self.assertNotEqual(r1, r2)
+
+    def test_to_dictionary_with_args(self):
+        """test to dictionary with arguments"""
+        r1 = Square(10, 2, 1, 9)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(1)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary([1])
+        with self.assertRaises(TypeError):
+            r1.to_dictionary({1})
+        with self.assertRaises(TypeError):
+            r1.to_dictionary("s")
+        with self.assertRaises(TypeError):
+            r1.to_dictionary({'key': 1})
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(1.2)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(True)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(False)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(None)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(float('nan'))
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(float('inf'))
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(1, 2)
 if __name__ == '__main__':
     unittest.main()
