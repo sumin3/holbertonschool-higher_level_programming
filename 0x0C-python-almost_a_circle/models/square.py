@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 from models.rectangle import Rectangle
 """import class rectangle"""
+from models.base import Base
+"""import class Base"""
 
 
 class Square(Rectangle):
@@ -49,7 +51,7 @@ class Square(Rectangle):
         if args and len(args) > 0:
             for idx, arg in enumerate(args):
                 if idx == 0:
-                    self.id = arg
+                    super(Rectangle, self).__init__(arg)
                 if idx == 1:
                     self.size = arg
                 if idx == 2:
@@ -59,7 +61,7 @@ class Square(Rectangle):
         elif kwargs and len(kwargs) > 0:
             for key, value in kwargs.items():
                 if key == 'id':
-                    self.id = value
+                    super(Rectangle, self).__init__(value)
                 if key == 'size':
                     self.size = value
                 if key == 'x':
