@@ -48,7 +48,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(b12.id, False)
         bN = Rectangle(1, 1, 1, 1, None)
         self.assertEqual(bN.id, 1)
-        self.assertEqual(bN.id, Rectangle._Base__nb_objects)        
+        self.assertEqual(bN.id, Rectangle._Base__nb_objects)
 
     def test_id_special_case(self):
         """test id with special cases"""
@@ -56,7 +56,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertNotEqual(b6.id, b6.id)
         b6 = Rectangle(1, 1, 1, 1, float('inf'))
         self.assertEqual(b6.id, float('inf'))
-    
+
     def test_width_height_int_success(self):
         """test width and height with integer that is greater than 0"""
         b1 = Rectangle(2, 1)
@@ -177,7 +177,7 @@ class TestRectangleClass(unittest.TestCase):
             Rectangle(1, 1, 1, float('nan'), 1)
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(1, 1, 1, float('inf'), 1)
-        
+
     def test_x_isInt(self):
         """test x with non int data type"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -232,31 +232,31 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_display(self):
         """test display method"""
-        out = io.StringIO()   
+        out = io.StringIO()
         sys.stdout = out
         Rectangle(2, 1).display()
         output = out.getvalue()
         self.assertEqual(output, "##\n")
 
-        out = io.StringIO()   
+        out = io.StringIO()
         sys.stdout = out
         Rectangle(3, 3).display()
         output = out.getvalue()
         self.assertEqual(output, "###\n###\n###\n")
 
-        out = io.StringIO()   
+        out = io.StringIO()
         sys.stdout = out
         Rectangle(3, 3, 1, 1).display()
         output = out.getvalue()
         self.assertEqual(output, "\n ###\n ###\n ###\n")
 
-        out = io.StringIO()   
+        out = io.StringIO()
         sys.stdout = out
         Rectangle(3, 3, 2, 3).display()
         output = out.getvalue()
         self.assertEqual(output, "\n\n\n  ###\n  ###\n  ###\n")
 
-        out = io.StringIO()   
+        out = io.StringIO()
         sys.stdout = out
         Rectangle(3, 3, 0, 0).display()
         output = out.getvalue()
@@ -461,7 +461,7 @@ class TestRectangleClass(unittest.TestCase):
             r1.update(height=float('nan'))
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r1.update(height=float('inf'))
-        
+
     def test_update_width_height_int_fail(self):
         """test width and height with integer that is equal or less
         than 0
@@ -480,6 +480,17 @@ class TestRectangleClass(unittest.TestCase):
             r1.update(1, 0, 1)
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             r1.update(1, 2, 0)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r1.update(width=-2)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r1.update(width=0)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r1.update(height=-2)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r1.update(height=0)
+        with self.assertRaises(ValueError):
+            r1.update(width=-2, height=-1)
+
 
     def test_update_x_noKeyword(self):
         """test update x with no-keyword argument"""
@@ -612,8 +623,7 @@ class TestRectangleClass(unittest.TestCase):
             r1.update(y=float('inf'))
 
     def test_update_x_y_int_fail(self):
-        """test width and height with integer that is equal or less
-        than 0
+        """test x and y with integer that is less than 0
         """
         Base._Base__nb_objects = 0
         r1 = Rectangle(10, 10, 10, 10)
@@ -629,7 +639,48 @@ class TestRectangleClass(unittest.TestCase):
             r1.update(x=-1)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             r1.update(y=-2)
+        with self.assertRaises(ValueError):
+            r1.update(y=-2, x=-1)
+
+    def test_to_dictionary(self):
+        """test to_dictionary medthod"""
+        Base._Base__nb_objects = 0
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_d = r1.to_dictionary()
+        d = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertDictEqual(r1_d, d)
+        self.assertEqual(type(r1_d), dict)
+        r2 = Rectangle(1, 1)
+        r2.update(**r1_d)
+        self.assertNotEqual(r1, r2)
+
+    def test_to_dictionary_with_args(self):
+        """test to dictionary with arguments"""
+        r1 = Rectangle(10, 2, 1, 9)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(1)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary([1])
+        with self.assertRaises(TypeError):
+            r1.to_dictionary({1})
+        with self.assertRaises(TypeError):
+            r1.to_dictionary("s")
+        with self.assertRaises(TypeError):
+            r1.to_dictionary({'key': 1})
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(1.2)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(True)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(False)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(None)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(float('nan'))
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(float('inf'))
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(1, 2)
 
 if __name__ == '__main__':
     unittest.main()
-    
