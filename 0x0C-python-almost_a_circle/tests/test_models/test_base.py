@@ -94,6 +94,20 @@ class TestBaseClass(unittest.TestCase):
         expectData = "[]"
         self.assertEqual(data, expectData)
 
+        Square.save_to_file([Square(1)])
+        with open("Square.json", "r") as file:
+            data = file.read()
+        list_dict = json.loads(data)
+        expectData = [{'y': 0, 'x': 0, 'id': 3, 'size': 1}]
+        self.assertDictEqual(list_dict[0], expectData[0])
+
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            data = file.read()
+        list_dict = json.loads(data)
+        expectData = []
+        self.assertEqual(list_dict, expectData)
+
     def test_save_to_file_diff_dataType_Rectangle(self):
         """test save_to_file method with different datatype"""
         with self.assertRaises(TypeError):
