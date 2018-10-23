@@ -54,7 +54,7 @@ class TestBaseClass(unittest.TestCase):
         list = [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]
         self.assertEqual(list_dict, list)
 
-    def test_save_to_file(self):
+    def test_save_to_file_rectangle(self):
         """test save to file method"""
         Base._Base__nb_objects = 0
         r1 = Rectangle(10, 7, 2, 8)
@@ -74,7 +74,27 @@ class TestBaseClass(unittest.TestCase):
         expectData = "[]"
         self.assertEqual(data, expectData)
 
-    def test_save_to_file_diff_dataType(self):
+    def test_save_to_file_square(self):
+        """test save to file method"""
+        Base._Base__nb_objects = 0
+        r1 = Square(10, 2, 8)
+        r2 = Square(2, 4)
+        Square.save_to_file([r1, r2])
+        with open("Square.json", "r") as file:
+            data = file.read()
+        expectData = [{"y": 8, "x": 2, "id": 1, "size": 10},
+                      {"y": 0, "x": 0, "id": 2, "size": 2]
+        list_dict = json.loads(data)
+        self.assertDictEqual(list_dict[0], expectData[0])
+        self.assertDictEqual(list_dict[1], expectData[1])
+
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            data = file.read()
+        expectData = "[]"
+        self.assertEqual(data, expectData)
+
+    def test_save_to_file_diff_dataType_Rectangle(self):
         """test save_to_file method with different datatype"""
         with self.assertRaises(TypeError):
             Rectangle.save_to_file(2)
@@ -94,6 +114,27 @@ class TestBaseClass(unittest.TestCase):
             Rectangle.save_to_file(float('nan'))
         with self.assertRaises(TypeError):
             Rectangle.save_to_file(float('inf'))
+
+    def test_save_to_file_diff_dataType_square(self):
+        """test save_to_file method with different datatype"""
+        with self.assertRaises(TypeError):
+            Square.save_to_file(2)
+        with self.assertRaises(Exception):
+            Square.save_to_file("23")
+        with self.assertRaises(Exception):
+            Square.save_to_file({1})
+        with self.assertRaises(Exception):
+            Square.save_to_file({'key': 1})
+        with self.assertRaises(TypeError):
+            Square.save_to_file(True)
+        with self.assertRaises(TypeError):
+            Square.save_to_file(False)
+        with self.assertRaises(TypeError):
+            Square.save_to_file(2.3)
+        with self.assertRaises(TypeError):
+            Square.save_to_file(float('nan'))
+        with self.assertRaises(TypeError):
+            Square.save_to_file(float('inf'))
 
     def test_from_json_string_success(self):
         """test from_json_string method"""
