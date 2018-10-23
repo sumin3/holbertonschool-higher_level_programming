@@ -8,10 +8,11 @@ import io
 from models.base import Base
 from models.rectangle import Rectangle
 
+
 class TestRectangleClass(unittest.TestCase):
     def test_is_subclass(self):
         """test Rectangle is subclass of Base or not"""
-        r = Rectangle(1,1)
+        r = Rectangle(1, 1)
         self.assertIsInstance(r, Base)
         self.assertIsNot(r, Base)
 
@@ -32,16 +33,16 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(b3.id, 12)
         b4 = Rectangle(1, 1, 1, 1, "string")
         self.assertEqual(b4.id, "string")
-        b5 = Rectangle(1, 1, 1, 1, {id:1})
-        self.assertEqual(b5.id, {id:1})
+        b5 = Rectangle(1, 1, 1, 1, {id: 1})
+        self.assertEqual(b5.id, {id: 1})
         b7 = Rectangle(1, 1, 1, 1, [1])
         self.assertEqual(b7.id, [1])
         b8 = Rectangle(1, 1, 1, 1, 2.4)
         self.assertEqual(b8.id, 2.4)
-        b9 = Rectangle(1, 1, 1, 1, (1,2))
-        self.assertEqual(b9.id, (1,2))
-        b10 = Rectangle(1, 1, 1, 1, {1,2})
-        self.assertEqual(b10.id, {1,2})
+        b9 = Rectangle(1, 1, 1, 1, (1, 2))
+        self.assertEqual(b9.id, (1, 2))
+        b10 = Rectangle(1, 1, 1, 1, {1, 2})
+        self.assertEqual(b10.id, {1, 2})
         b11 = Rectangle(1, 1, 1, 1, True)
         self.assertEqual(b11.id, True)
         b12 = Rectangle(1, 1, 1, 1, False)
@@ -104,7 +105,7 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle([1], 1)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Rectangle({1:2}, 1)
+            Rectangle({1: 2}, 1)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle((1, 2), 1)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -123,11 +124,11 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             Rectangle(1, "a")
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            Rectangle(1, {1,2})
+            Rectangle(1, {1, 2})
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            Rectangle(1, [1,2])
+            Rectangle(1, [1, 2])
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            Rectangle(1, {1:2})
+            Rectangle(1, {1: 2})
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             Rectangle(1, (1, 2))
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
@@ -187,7 +188,7 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(1, 1, [1], 1)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Rectangle(1, 1, {1:2}, 1)
+            Rectangle(1, 1, {1: 2}, 1)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(1, 1, (1, 2), 1)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -206,11 +207,11 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(1, 1, 1, "a")
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Rectangle(1, 1, 1, {1,2})
+            Rectangle(1, 1, 1, {1, 2})
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Rectangle(1, 1, 1, [1,2])
+            Rectangle(1, 1, 1, [1, 2])
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Rectangle(1, 1, 1, {1:2})
+            Rectangle(1, 1, 1, {1: 2})
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(1, 1, 1, (1, 2))
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
@@ -491,6 +492,11 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaises(ValueError):
             r1.update(width=-2, height=-1)
 
+    def test_update_width_height_mix_noKey_withKey(self):
+        Base._Base__nb_objects = 0
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(0, width=-2, height=-1)
+        self.assertEqual(r1.__str__(), "[Rectangle] (0) 10/10 - 10/10")
 
     def test_update_x_noKeyword(self):
         """test update x with no-keyword argument"""

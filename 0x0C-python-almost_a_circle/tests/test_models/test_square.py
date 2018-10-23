@@ -8,10 +8,11 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 class TestSquareClass(unittest.TestCase):
     def test_is_subclass(self):
         """test Square is subclass of Base or not"""
-        r = Square(1,1)
+        r = Square(1, 1)
         self.assertIsInstance(r, Base)
         self.assertIsNot(r, Base)
 
@@ -32,16 +33,16 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(b3.id, 12)
         b4 = Square(1, 1, 1, "string")
         self.assertEqual(b4.id, "string")
-        b5 = Square(1, 1, 1, {id:1})
-        self.assertEqual(b5.id, {id:1})
+        b5 = Square(1, 1, 1, {id: 1})
+        self.assertEqual(b5.id, {id: 1})
         b7 = Square(1, 1, 1, [1])
         self.assertEqual(b7.id, [1])
         b8 = Square(1, 1, 1, 2.4)
         self.assertEqual(b8.id, 2.4)
-        b9 = Square(1, 1, 1, (1,2))
-        self.assertEqual(b9.id, (1,2))
-        b10 = Square(1, 1, 1, {1,2})
-        self.assertEqual(b10.id, {1,2})
+        b9 = Square(1, 1, 1, (1, 2))
+        self.assertEqual(b9.id, (1, 2))
+        b10 = Square(1, 1, 1, {1, 2})
+        self.assertEqual(b10.id, {1, 2})
         b11 = Square(1, 1, 1, True)
         self.assertEqual(b11.id, True)
         b12 = Square(1, 1, 1, False)
@@ -85,7 +86,6 @@ class TestSquareClass(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(size=0)
 
-
     def test_size_special_case(self):
         """test width and height with special cases"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -102,7 +102,7 @@ class TestSquareClass(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square([1], 1)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square({1:2}, 1)
+            Square({1: 2}, 1)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square((1, 2), 1)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -162,7 +162,7 @@ class TestSquareClass(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Square(1, [1], 1)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Square(1, {1:2}, 1)
+            Square(1, {1: 2}, 1)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Square(1, (1, 2), 1)
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -181,11 +181,11 @@ class TestSquareClass(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Square(1, 1, "a")
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Square(1, 1, {1,2})
+            Square(1, 1, {1, 2})
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Square(1, 1, [1,2])
+            Square(1, 1, [1, 2])
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Square(1, 1, {1:2})
+            Square(1, 1, {1: 2})
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Square(1, 1, (1, 2))
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
@@ -202,7 +202,7 @@ class TestSquareClass(unittest.TestCase):
     def test_area(self):
         """test area of Square"""
         self.assertEqual(Square(3).area(), 9)
-        self.assertEqual(Square(2,0).area(), 4)
+        self.assertEqual(Square(2, 0).area(), 4)
         self.assertEqual(Square(2, 2, 0, 0).area(), 4)
 
     def test_display(self):

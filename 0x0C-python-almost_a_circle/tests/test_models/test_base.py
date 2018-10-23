@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """Unittest for class base
 """
@@ -8,6 +7,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 import json
+
 
 class TestBaseClass(unittest.TestCase):
     def test_id(self):
@@ -22,18 +22,18 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(b3.id, 12)
         b4 = Base("string")
         self.assertEqual(b4.id, "string")
-        b5 = Base({id:1})
-        self.assertEqual(b5.id, {id:1})
+        b5 = Base({id: 1})
+        self.assertEqual(b5.id, {id: 1})
         b6 = Base(float('nan'))
         self.assertNotEqual(b6.id, b6.id)
         b7 = Base([1])
         self.assertEqual(b7.id, [1])
         b8 = Base(2.4)
         self.assertEqual(b8.id, 2.4)
-        b9 = Base((1,2))
-        self.assertEqual(b9.id, (1,2))
-        b10 = Base({1,2})
-        self.assertEqual(b10.id, {1,2})
+        b9 = Base((1, 2))
+        self.assertEqual(b9.id, (1, 2))
+        b10 = Base({1, 2})
+        self.assertEqual(b10.id, {1, 2})
         b11 = Base(None)
         self.assertEqual(b11.id, 3)
         self.assertEqual(b11.id, Base._Base__nb_objects)
@@ -47,7 +47,7 @@ class TestBaseClass(unittest.TestCase):
         list_dict = json.loads(json_dict)
         list = [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]
         self.assertEqual(list_dict, list)
-        
+
     def test_save_to_file(self):
         """test save to file method"""
         Base._Base__nb_objects = 0
@@ -119,7 +119,7 @@ class TestBaseClass(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle.from_json_string(2)
         with self.assertRaises(TypeError):
-            Rectangle.from_json_string({'key':1})
+            Rectangle.from_json_string({'key': 1})
         with self.assertRaises(TypeError):
             Rectangle.from_json_string(float('nan'))
         with self.assertRaises(TypeError):
@@ -127,7 +127,7 @@ class TestBaseClass(unittest.TestCase):
 
     def test_from_json_string_diff_key(self):
         """test from_json_string with different key"""
-        list_input = [{'i': 89, 'w': 10, 'h': 4}, 
+        list_input = [{'i': 89, 'w': 10, 'h': 4},
                       {'i': 7, 'w': 1, 'h': 7}]
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
@@ -167,7 +167,7 @@ class TestBaseClass(unittest.TestCase):
             r2 = Rectangle.create(float('nan'))
         with self.assertRaises(TypeError):
             r2 = Rectangle.create(float('inf'))
-        
+
     def test_load_from_file(self):
         """test load_from_file method"""
 
@@ -198,8 +198,7 @@ class TestBaseClass(unittest.TestCase):
                          "[Square] (5) 0/0 - 5")
         self.assertEqual(list_sq_output[1].__str__(),
                          "[Square] (6) 9/1 - 7")
-        
-        
+
+
 if __name__ == '__main__':
     unittest.main()
-    
