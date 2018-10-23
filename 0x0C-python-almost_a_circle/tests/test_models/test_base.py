@@ -83,7 +83,7 @@ class TestBaseClass(unittest.TestCase):
         with open("Square.json", "r") as file:
             data = file.read()
         expectData = [{"y": 8, "x": 2, "id": 1, "size": 10},
-                      {"y": 0, "x": 0, "id": 2, "size": 2]
+                      {"y": 0, "x": 4, "id": 2, "size": 2}]
         list_dict = json.loads(data)
         self.assertDictEqual(list_dict[0], expectData[0])
         self.assertDictEqual(list_dict[1], expectData[1])
