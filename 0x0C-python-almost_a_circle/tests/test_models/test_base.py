@@ -10,6 +10,12 @@ import json
 
 
 class TestBaseClass(unittest.TestCase):
+    def test_is_subclass(self):
+        """test instance"""
+        r = Base(1)
+        self.assertIsInstance(r, Base)
+        self.assertIsNot(r, Base)
+
     def test_id(self):
         """test id of base"""
         b1 = Base()
