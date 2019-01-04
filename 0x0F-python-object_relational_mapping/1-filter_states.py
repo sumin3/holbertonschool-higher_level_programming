@@ -18,3 +18,4 @@ if __name__ == '__main__':
     WHERE name LIKE BINARY 'N%' ORDER BY id;""")
     for state in cur.fetchall():
         print("{}".format(state))
+    db.close()
