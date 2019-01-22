@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Python script that takes in a letter and sends a POST request to
-http://0.0.0.0:5000/search_user with the letter as a parameter.
+Python script that takes in a string and sends a search request
+to the Star Wars API
 """
 if __name__ == "__main__":
     import requests
