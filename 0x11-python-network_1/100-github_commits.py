@@ -12,7 +12,10 @@ if __name__ == "__main__":
     json = r.json()
     count = 1
     for i in json:
-        print(i.get('sha') + ':', i.get('commit').get('author').get('name'))
+        try:
+            print(i.get('sha') + ':', i.get('commit').get('author').get('name'))
+        except:
+            print('None')
         if count == 10:
             break
         count += 1
