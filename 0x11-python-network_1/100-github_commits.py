@@ -6,7 +6,6 @@ the most recent to oldest) of the repository “rails” by the user “rails”
 if __name__ == "__main__":
     import requests
     from sys import argv
-    from pprint import pprint
 
     url = 'https://api.github.com/repos/{}/{}/commits'.format(argv[1], argv[2])
     r = requests.get(url)
