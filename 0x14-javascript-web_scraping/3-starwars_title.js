@@ -1,5 +1,5 @@
 #!/usr/bin/node
-/* title of a Star Wars movie where the episode 
+/* title of a Star Wars movie where the episode
 number matches a given integer. */
 const request = require('request');
 const url = 'http://swapi.co/api/films/' + process.argv[2];
